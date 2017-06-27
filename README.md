@@ -13,7 +13,7 @@ Do you want to be a web developer?
   
   > Global properties and methods
 
-* Function scopes, variable scopes and closure
+* ##### Function scopes, variable scopes and closure
   > In JavaScript, objects and functions are also variables.
   > In JavaScript, scope is the set of variables, objects, and functions you have access to.
   > JavaScript has function scope: The scope changes inside functions.
@@ -21,7 +21,7 @@ Do you want to be a web developer?
   > A variable declared outside a function, becomes GLOBAL.
   > A global variable has global scope: All scripts and functions on a web page can access it. 
 
-* Most common design patterns in JS ( module definition, singleton, pub/sub, etc )
+* ##### Most common design patterns in JS ( module definition, singleton, pub/sub, etc )
   
   > Module
   
@@ -31,7 +31,7 @@ Do you want to be a web developer?
   
   > Singleton
 
-* Callbacks, promises, eventEmmiter, continuation-passing style ( CPS ) 
+* ##### Callbacks, promises, eventEmmiter, continuation-passing style ( CPS ) 
   
   > **`A callback function`**, also known as a higher-order function, is a function that is passed to another function (let’s call this other function “otherFunction”) as a parameter, and the callback function is called (or executed) inside the otherFunction. A callback function is essentially a pattern (an established solution to a common problem), and therefore, the use of a callback function is also known as a callback pattern.
 
