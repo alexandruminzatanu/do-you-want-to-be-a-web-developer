@@ -51,7 +51,6 @@ Even better, a programmer can discover continuation-passing style by themselves 
   > One hint makes programming in this style possible:
   
   > **`Procedures can take a callback to invoke upon their return value.`**
-  
    ``` 
        function traverseDocument(node, func) { 
        func(node);
@@ -64,11 +63,58 @@ Even better, a programmer can discover continuation-passing style by themselves 
          node.nodeValue = node.nodeValue.toUpperCase();
          }
        traverseDocument(document.body, capitaliseText);
-       
 
-* ##### Prototypal inheritance
+
+ * ##### Prototypal inheritance
+   > Ex:
+
+   > 
+      ```  
+            function Dog() { 
+            }
+            Dog.prototype.bark = function() {
+            console.log(‘woof!’);
+            };
+            var fido = new Dog();
+            fido.bark(); // ‘woof!’
+    ```
+    
+   >  **Differential Inheritance**
+   
+   > JavaScript uses an inheritance model called “differential inheritance”. What that means is that methods aren’t copied from parent to child. Instead, children have an “invisible link” back to their parent object.
+   
+   > For example, fido doesn’t actually have its own method called bark() (in other words,     fido.hasOwnProperty(‘bark’) === false).
+   > What actually happens when I write fido.bark() is this:
+        1. The JS engine looks for a property called bark on our fido object.
+        2. It doesn’t find one, so it looks “up the prototype chain” to fido’s parent, which is Dog.prototype.
+        3. It finds Dog.prototype.bark, and calls it with this bound to fido.
+       
+    > That part is really important, so I’m going to repeat it:
+  
+    > There’s really no such property as fido.bark. It doesn’t exist. Instead, fido has access to the bark() method on Dog.prototype    because it’s an instance of Dog. This is the “invisible link” I mentioned. More commonly, it’s referred to as the “prototype chain”.
+
+
 
 * ##### Main differences between ES5 and ES6 ( let, const, var, arrow functions, class )
+   > Default params: 
+
+         var link = function(height = 50, color = 'red', url = 'http://azat.co') {
+         ...
+         } 
+    
+    > Template Literals in ES6: 
+    
+         var name = `Your name is ${first} ${last}.`
+         var url = `http://localhost:3000/api/messages/${id}`
+    
+    > Multi-line Strings in ES6: 
+    
+         var fourAgreements = `You have the right to be you.
+                  You can only be you when you do your best.`
+    
+    > Destructuring Assignment in ES6: 
+    
+         var { house, mouse} = $('body').data()
 
 * ##### OOP -- in general, not specific to javascript
 
