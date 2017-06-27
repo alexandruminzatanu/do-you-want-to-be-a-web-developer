@@ -2,11 +2,17 @@ Do you want to be a web developer?
 
 ### [Javascript]
 * ##### Core language features
+
   > Objects
+  
   > Reserved words
+  
   > Operators
+  
   > Statements
+  
   > Global properties and methods
+
 * Function scopes, variable scopes and closure
   > In JavaScript, objects and functions are also variables.
   > In JavaScript, scope is the set of variables, objects, and functions you have access to.
