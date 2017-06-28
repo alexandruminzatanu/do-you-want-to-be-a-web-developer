@@ -245,16 +245,24 @@ Even better, a programmer can discover continuation-passing style by themselves 
 
 * ##### Development Tools and Practices
     > source control (TFS,GIT)
+
     > code review
+    
     > pair programming
+    
     > unit testing
+    
 
 * ##### Development workflows (agile, scrum, kanban)
    > See [Kanban](http://kanbanblog.com/explained/)
+
    > See [Agile](http://agilemanifesto.org/)
+   
    > See [Scrum](http://www.scrumguides.org/)
+   
 * ##### Web/browser security
   > Web Security
     See [MDN - Web Security](https://developer.mozilla.org/en-US/docs/Web/Security)
+
   > Browser Security
     See [How-To Geek - Browser Security](https://www.howtogeek.com/228828/7-ways-to-secure-your-web-browser-against-attacks/)
