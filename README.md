@@ -114,20 +114,147 @@ Even better, a programmer can discover continuation-passing style by themselves 
     
     > Destructuring Assignment in ES6: 
     
-         var { house, mouse} = $('body').data()
+         var { house, mouse} = $('body').data(),
+         [col1, col2]  = $('.column'),
+         [line1, line2, line3, , line5] = file.split('\n')
+
+    > Enhanced Object Literals in ES6: 
+    
+         var serviceBase = {port: 3000, url: 'azat.co'},
+         getAccounts = function(){return [1,2,3]}
+         var accountService = {
+         __proto__: serviceBase,
+                    getAccounts,
+         //Also, we can invoke super and have dynamic keys (valueOf_1_2_3):
+                    toString() {
+                    return JSON.stringify((super.valueOf()))
+                    },
+                    getUrl() {
+                    return "http://" + this.url + ':' + this.port},
+                    [ 'valueOf_' + getAccounts().join('_') ]: getAccounts()
+                };
+        console.log(accountService)
+
+    > Arrow Functions in ES6: 
+    
+         $('.btn').click((event) =>{
+                         this.sendData()
+                        })
+
+    > Promises in ES6:
+    
+         var wait1000 =  new Promise((resolve, reject)=> {
+         setTimeout(resolve, 1000)
+         }).then(()=> {
+          console.log('Yay!')
+         })
+
+    > Block-Scoped Constructs Let and Const:
+
+    > let is a new var which allows to scope the variable to the blocks. We define blocks by the        curly braces. In ES5, the blocks did NOTHING to the vars. Vars are function scoped.
+
+         function calculateTotalAmount (vip) {
+          var amount = 0
+          if (vip) {
+            var amount = 1
+          }
+          { // more crazy blocks!
+            var amount = 100
+            {
+              var amount = 1000
+              }
+          }  
+          return amount
+        }
+
+         console.log(calculateTotalAmount(true))
+  
+   > The result will be 1000. Wow! That’s a really bad bug. In ES6, we use let to restrict the scope to the blocks. Vars are function scoped.
+   
+         function calculateTotalAmount (vip) {
+              var amount = 0 // probably should also be let, but you can mix var and let
+              if (vip) {
+                let amount = 1 // first amount is still 0
+              } 
+              { // more crazy blocks!
+                let amount = 100 // first amount is still 0
+                {
+                  let amount = 1000 // first amount is still 0
+                  }
+              }  
+              return amount
+            }
+            console.log(calculateTotalAmount(true))
+   
+    > The value is 0, because the if block also has let. If it had nothing (amount=1), then the expression would have been 1.
+
+    > When it comes to const, things are easier; it’s just an immutable, and it’s also block-scoped like let. Just to demonstrate, here are a bunch of constants and they all are okay because they belong to different blocks:
+    
+      function calculateTotalAmount (vip) {
+          const amount = 0  
+          if (vip) {
+            const amount = 1 
+          } 
+          { // more crazy blocks!
+            const amount = 100 
+            {
+              const amount = 1000
+              }
+          }  
+          return amount
+        }
+        console.log(calculateTotalAmount(true))
+    
+    > Classes in ES6:
+    
+          class baseModel {
+      constructor(options = {}, data = []) { // class constructor
+            this.name = 'Base'
+        this.url = 'http://azat.co/api'
+            this.data = data
+        this.options = options
+        }
+    
+        getName() { // class method
+            console.log(`Class name: ${this.name}`)
+        }
+       }
+    
+    > Modules in ES6:
+    
+          module.exports = {
+          port: 3000,
+          getAccounts: function() {
+            ...
+          }
+        } 
 
 * ##### OOP -- in general, not specific to javascript
-
+   
+    > Basic OOP
+    See [Object-oriented JavaScript for beginners](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
+ 
 * ##### Design Patterns -- with a focus on JS specific patterns
+    > 4 Design Patterns
+    See [4 JavaScript Design Patterns You Should Know](https://scotch.io/bar-talk/4-javascript-design-patterns-you-should-know)
 
 * ##### Software Design and Architecture Principles -- SOLID, TRUE
 
-* ##### Development Tools and Practices -- source control, code review, pair programming, unit testing 
+    > SOLID Principle
+    See [S.O.L.I.D: The First 5 Principles of Object Oriented Design](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design)
+
+* ##### Development Tools and Practices
+    > source control (TFS,GIT)
+    > code review
+    > pair programming
+    > unit testing
 
 * ##### Development workflows (agile, scrum, kanban)
-
+   > See [Kanban](http://kanbanblog.com/explained/)
+   > See [Agile](http://agilemanifesto.org/)
+   > See [Scrum](http://www.scrumguides.org/)
 * ##### Web/browser security
-
-### [HTML]
-
-### [CSS]
+  > Web Security
+    See [MDN - Web Security](https://developer.mozilla.org/en-US/docs/Web/Security)
+  > Browser Security
+    See [How-To Geek - Browser Security](https://www.howtogeek.com/228828/7-ways-to-secure-your-web-browser-against-attacks/)
