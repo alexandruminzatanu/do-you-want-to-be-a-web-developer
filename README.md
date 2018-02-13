@@ -1,5 +1,5 @@
 Do you want to be a web developer?
-
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/alexandruminzatanu/my-stack)
 ### [Javascript]
 * ##### Core language features
 
